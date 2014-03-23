@@ -5,24 +5,23 @@
 # @version 2013/Nov/16
 
 use lib 'lib';
-use context qw(tmpl_dir run_data);
 use JBD::Core::stern;
 use JBD::Tempo::Router 'get';
 use JBD::Tempo::Display;
-
 use CGI qw(header redirect param);
 
-# display object
-my $disp = JBD::Tempo::Display->new(tmpl_dir, run_data);
+# Location of template files.
+sub tmpl_dir { 'tmpl' }
 
-# CGI/ENV data used in get()
+# Location of Storable run data file.
+sub run_data { 'db/rundata.store' }
+
+
+my $disp = JBD::Tempo::Display->new(tmpl_dir, run_data);
 my %params = map {$_ => param($_) || ''} qw(route chart);
 
-# response content, or redirect home
 my $content = get $disp, %params or do {
     print redirect '/';
     exit;
 };
-
-# print response
 print header(-charset => 'utf-8'), $content;
