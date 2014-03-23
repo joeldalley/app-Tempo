@@ -1,0 +1,56 @@
+<div class="chart serial" id="<!--DIV-ID-->"></div>
+<script language="javascript" type="text/javascript">
+  <!--
+    // SERIAL CHART
+    var chart = new AmCharts.AmSerialChart();
+    chart.dataProvider = <!--JSON-->;
+    chart.categoryField = "<!--CATEGORY-FIELD-->";
+    chart.depth3D = 20;
+    chart.angle = 30;
+
+    // AXES
+
+    // category
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.title = "<!--CATEGORY-TITLE-->";
+    categoryAxis.labelRotation = 45;
+    categoryAxis.dashLength = 5;
+    categoryAxis.gridPosition = "start";
+    
+    // value
+    var valueAxis = new AmCharts.ValueAxis();
+    valueAxis.stackType = "regular";
+    valueAxis.title = "<!--VALUE-TITLE-->";
+    valueAxis.gridAlpha = 0.1;
+    valueAxis.axisAlpha = 0;
+    valueAxis.dashLength = 5;
+    valueAxis.minimum = 0;
+    chart.addValueAxis(valueAxis);
+
+    // GRAPHS
+    var keys = <!--KEYS-->;
+    var colors = <!--COLORS-->;
+    for (var i = 0; i < keys.length; i++) {
+        var graph = new AmCharts.AmGraph();
+        graph.title = keys[i];
+        graph.valueField = keys[i];
+        graph.lineColor = colors[i];
+        graph.labelText = "";
+        graph.balloonText = "<span style='font-size:14px'>" + keys[i] + ": <b>[[value]]</b></span>";
+        graph.type = "column";
+        graph.lineAlpha = 0;
+        graph.fillAlphas = 1;
+        chart.addGraph(graph);
+    };
+
+    // LEGEND
+    var legend = new AmCharts.AmLegend();
+    legend.borderAlpha = 0.2;
+    legend.valueWidth = 0;
+    legend.horizontalGap = 10;
+    chart.addLegend(legend);
+
+    // WRITE
+    chart.write("<!--DIV-ID-->");
+  //-->
+</script>

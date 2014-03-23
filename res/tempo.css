@@ -1,0 +1,53 @@
+@font-face {
+  font-family:"Libre Baskerville";font-style:normal;font-weight:400;
+  src:url(/res/fonts/libre-baskerville.woff) format("woff");
+}
+
+body {margin:0;background-color:#fff;font-family:"Libre Baskerville",Times,serif;font-size:14.5px;color:#111}
+img {border:0}
+a {color:#111;}
+a:hover {color:#444;text-decoration:none}
+
+.bg-yellow {background-color:#F3E8BC}
+.bg-eee {background-color:#EEE}
+.mono {font-family:"Andale Mono","Lucidia Console",Courier,monospace}
+.block {display:block}
+
+div#banner {width:100%;clear:both}
+div#banner img {width:100%;height:auto;max-width:100%}
+
+div#top-nav {font-size:16px}
+ul.top-nav {list-style:none;margin:0;padding:0;text-align:center}
+ul.top-nav li{display:inline;margin:0 5px 0 5px}
+ul.top-nav a {display:inline-block;padding:10px}
+ul.top-nav a:hover {color:#333}
+
+h1 {margin:20px 0 8px 5%;font-size:36px}
+div#content {margin:40px 5% 5% 5%}
+
+div.para {margin-bottom:40px}
+span.para-head {color:#444;font-size:18px;font-weight:bold}
+div.sub-para {margin:20px 0 8px 0}
+
+div#profile {width:200px;float:right;margin:0 10px 30px 40px;font-size:13px}
+div#profile-head {font-size:20px;font-weight:bold;text-align:center}
+img#profile-image {height:200px;width:200px;display:block;margin:10px 0 10px 0}
+a.profile-link {display:block;margin:4px 0 4px 0}
+
+div.chart-container {width:100%;text-align:center;margin:0 0 40px 0}
+div.chart-title {color:#121212;font-size:20px;font-weight:bold}
+div.chart {margin:auto;margin-top:6px;height:360px;overflow:hidden}
+div.chart.serial {width:90%}
+div.chart.pie {width:90%}
+
+div.chart-left {padding-right:2%;width:48%;float:left}
+div.chart-right {padding-left:2%;width:48%;float:left}
+
+div.loading-gif {width: 100%;text-align:center;margin:0 0 40px 0}
+div.loading-gif img {height:100px;width:100px}
+
+table#runlog {width:100%;font-size:14px}
+table#runlog th {padding:3px}
+
+div#footer {padding:6px;text-align:center;background-color:#111;color:#EEE;font-size:10px}
+div#footer a {text-decoration:none;color:#EEE}

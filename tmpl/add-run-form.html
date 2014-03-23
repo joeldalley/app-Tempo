@@ -1,0 +1,16 @@
+<form method="post" action="/add.pl">
+  <input type="hidden" name="passkey" value="<!--PASSKEY-->"/>
+  <input type="hidden" name="mode" value="insert"/>
+  <label for="distance">Distance:</label>
+  <input type="text" size="8" name="distance"/>
+  <br/>
+  <select name="surface" size="1">
+    <!--SURF-OPTS-->
+  </select>
+  <br/>
+  <select name="footwear" size="1">
+    <!--FOOT-OPTS-->
+  </select>
+  <br/>
+  <input type="submit" value="Add"/>
+</form>

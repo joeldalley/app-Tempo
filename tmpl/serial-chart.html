@@ -1,0 +1,47 @@
+<div class="chart serial" id="<!--DIV-ID-->"></div>
+<script language="javascript" type="text/javascript">
+  <!--
+    // SERIAL CHART
+    var chart = new AmCharts.AmSerialChart();
+    chart.dataProvider = <!--JSON-->;
+    chart.categoryField = "<!--CATEGORY-FIELD-->";
+    chart.depth3D = 20;
+    chart.angle = 30;
+    
+    // AXES
+
+    // category
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.title = "<!--CATEGORY-TITLE-->";
+    categoryAxis.labelRotation = 45;
+    categoryAxis.dashLength = 5;
+    categoryAxis.gridPosition = "start";
+    
+    // value
+    var valueAxis = new AmCharts.ValueAxis();
+    valueAxis.title = "<!--VALUE-TITLE-->";
+    valueAxis.dashLength = 5;
+    valueAxis.minimum = 0;
+    chart.addValueAxis(valueAxis);
+    
+    // GRAPH            
+    var graph = new AmCharts.AmGraph();
+    graph.valueField = "<!--VALUE-FIELD-->";
+    graph.colorField = "color";
+    graph.balloonText = "<span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+    graph.type = "column";
+    graph.lineAlpha = 0;
+    graph.fillAlphas = 1;
+    chart.addGraph(graph);
+    
+    // CURSOR
+    var chartCursor = new AmCharts.ChartCursor();
+    chartCursor.cursorAlpha = 0;
+    chartCursor.zoomable = false;
+    chartCursor.categoryBalloonEnabled = false;
+    chart.addChartCursor(chartCursor);                
+    
+    // WRITE
+    chart.write("<!--DIV-ID-->");
+  //-->
+</script>

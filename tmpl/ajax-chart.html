@@ -1,0 +1,12 @@
+<div id="loading-<!--DIV-ID-->" class="loading-gif">
+  <img src="/res/loading.gif" alt="Loading..."/>
+</div>
+<script language="javascript" type="text/javascript">
+<!--
+  $(document).ready(function() {
+      $.get('/ajax/chart/<!--CHART-->', function(data) {
+          $('#loading-<!--DIV-ID-->').replaceWith(data);
+      });
+  });
+//-->
+</script>
