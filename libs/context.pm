@@ -5,15 +5,17 @@
 
 package context;
 use JBD::Core::stern;
+use File::Basename 'dirname';
+use Cwd 'abs_path';
 
 use Exporter 'import';
 our @EXPORT_OK = qw(tmpl_dir run_data footwear surfaces);
 
 # Location of template files.
-sub tmpl_dir { 'tmpl' }
+sub tmpl_dir { dirname(abs_path __FILE__) . '/../tmpl' }
 
 # Location of Storable run data file.
-sub run_data { 'db/rundata.store' }
+sub run_data { dirname(abs_path __FILE__) . '/../db/rundata.store' }
 
 # Footwear which occurs in data set, 
 # and which will appear on the add form.
