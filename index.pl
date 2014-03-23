@@ -4,6 +4,7 @@
 # @author Joel Dalley
 # @version 2013/Nov/16
 
+use lib '.';
 use context qw(tmpl_dir run_data);
 
 use JBD::Core::stern;

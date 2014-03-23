@@ -5,6 +5,7 @@
 # @version 2013/Nov/16
 
 package JBD::Tempo::Router;
+use JBD::Core::Exporter ':omni';
 
 # @param JBD::Tempo::Display $disp    display object
 # @param hash %params    k/v pairs of CGI/ENV data
