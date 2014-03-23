@@ -4,6 +4,8 @@
 # @author Joel Dalley
 # @version 2013/Nov/16
 
+package JBD::Tempo::Router;
+
 # @param JBD::Tempo::Display $disp    display object
 # @param hash %params    k/v pairs of CGI/ENV data
 # @return mixed    either the response content, or 0
