@@ -4,9 +4,8 @@
 #/ @author Joel Dalley
 #/ @version 2013/Nov/16
 
-use lib '.';
+use lib 'lib';
 use context qw(tmpl_dir run_data footwear surfaces);
-
 use JBD::Core::stern;
 use JBD::Tempo::Display::AddForm;
 use JBD::Tempo::Passkey;

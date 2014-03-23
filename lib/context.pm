@@ -3,9 +3,6 @@
 # @author Joel Dalley
 # @version 2013/Nov/16
 
-# Location of JBD::x modules.
-use lib 'lib';
-
 package context;
 use JBD::Core::stern;
 
