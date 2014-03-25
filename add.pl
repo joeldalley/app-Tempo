@@ -6,16 +6,17 @@
 
 use lib 'libs';
 
-use context qw(tmpl_dir run_data footwear surfaces);
+use context qw(passkey tmpl_dir run_data footwear surfaces);
 use CGI qw(redirect header param);
 
 use JBD::Tempo::Display::AddForm;
-use JBD::Tempo::Passkey;
 use JBD::Core::stern;
+use File::Slurp;
 
 # quote-unquote security
-my $key = param('passkey') || '';
-$key eq $JBD::Tempo::Passkey::KEY or do {
+my $attempt = param('passkey') || '';
+my $passkey = passkey or die 'No passkey';
+$attempt eq $passkey or do {
     print redirect '/';
     exit;
 };
@@ -24,7 +25,7 @@ my $disp = JBD::Tempo::Display::AddForm->new(tmpl_dir, run_data);
 
 param('mode') or do {
     print header(-charset => 'utf-8'), 
-          $disp->form($key, footwear, surfaces);
+          $disp->form($passkey, footwear, surfaces);
     exit;
 };
 param('mode') eq 'insert' and do {
