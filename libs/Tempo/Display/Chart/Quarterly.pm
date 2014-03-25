@@ -3,20 +3,20 @@
 # @author Joel Dalley
 # @version 2013/Dec/24
 
-package JBD::Tempo::Display::Chart::Quarterly;
+package Tempo::Display::Chart::Quarterly;
 
-use parent 'JBD::Tempo::Display::Chart';
+use parent 'Tempo::Display::Chart';
 
 use JBD::Core::stern;
-use JBD::Tempo::Color 'next_color';
-use JBD::Tempo::Data 'DATE';
+use Tempo::Color 'next_color';
+use Tempo::Data 'DATE';
 use JSON 'to_json';
 
 
 #///////////////////////////////////////////////////////////////
 # Interface ////////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Quarterly $this
+# @param Tempo::Display::Chart::Quarterly $this
 # @return hash    template replacements
 sub chart {
     my $this = shift;
@@ -52,7 +52,7 @@ sub chart {
 #///////////////////////////////////////////////////////////////
 # Internal use /////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Quarterly $this
+# @param Tempo::Display::Chart::Quarterly $this
 # @param int $Y    a year, YYYY
 # @param int $q    quarter of year, 1-4
 # @return float    a number of miles

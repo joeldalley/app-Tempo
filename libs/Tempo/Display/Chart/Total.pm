@@ -3,18 +3,18 @@
 # @author Joel Dalley
 # @version 2013/Dec/24
 
-package JBD::Tempo::Display::Chart::Total;
+package Tempo::Display::Chart::Total;
 
-use parent 'JBD::Tempo::Display::Chart';
+use parent 'Tempo::Display::Chart';
 
 use JBD::Core::stern;
-use JBD::Tempo::Color 'color_list';
+use Tempo::Color 'color_list';
 use JSON 'to_json';
 
 #//////////////////////////////////////////////////////////////
 # Interface ///////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Total $this
+# @param Tempo::Display::Chart::Total $this
 # @return string    container + chart html
 sub chart {
     my $this = shift;

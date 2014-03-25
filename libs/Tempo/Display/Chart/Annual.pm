@@ -3,19 +3,19 @@
 # @author Joel Dalley
 # @version 2013/Dec/24
 
-package JBD::Tempo::Display::Chart::Annual;
+package Tempo::Display::Chart::Annual;
 
-use parent 'JBD::Tempo::Display::Chart';
+use parent 'Tempo::Display::Chart';
 
 use JBD::Core::stern;
-use JBD::Tempo::Color 'color_list';
-use JBD::Tempo::Data 'DATE';
+use Tempo::Color 'color_list';
+use Tempo::Data 'DATE';
 use JSON 'to_json';
 
 #//////////////////////////////////////////////////////////////
 # Interface ///////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Annual $this
+# @param Tempo::Display::Chart::Annual $this
 # @return string    container + chart html
 sub chart {
     my $this = shift;

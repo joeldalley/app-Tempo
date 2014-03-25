@@ -3,19 +3,19 @@
 # @author Joel Dalley
 # @version 2013/Oct/06
 
-package JBD::Tempo::Display::Log;
+package Tempo::Display::Log;
 
-use parent 'JBD::Tempo::Display';
+use parent 'Tempo::Display';
 
 use JBD::Core::stern;
 use JBD::Core::Date;
-use JBD::Tempo::Data qw(DATE DIST FOOT SURF);
+use Tempo::Data qw(DATE DIST FOOT SURF);
 
 
 #//////////////////////////////////////////////////////////////
 # Object interface ////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Log $this
+# @param Tempo::Display::Log $this
 # @param int [optional] $size    how many rows: default all
 # @return string    html
 sub log {

@@ -3,20 +3,20 @@
 # @author Joel Dalley
 # @version 2013/Nov/16
 
-package JBD::Tempo::Display::Chart::Recent;
+package Tempo::Display::Chart::Recent;
 
-use parent 'JBD::Tempo::Display::Chart';
+use parent 'Tempo::Display::Chart';
 
 use JSON 'to_json';
 use JBD::Core::stern;
 use JBD::Core::Date;
-use JBD::Tempo::Color 'color_list';
-use JBD::Tempo::Data 'DATE';
+use Tempo::Color 'color_list';
+use Tempo::Data 'DATE';
 
 #//////////////////////////////////////////////////////////////
 # Interface ///////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Recent $this
+# @param Tempo::Display::Chart::Recent $this
 # @return string    container + chart html
 sub chart {
     my $this = shift;

@@ -3,7 +3,7 @@
 # @author Joel Dalley
 # @version 2013/Oct/12
 
-package JBD::Tempo::Color;
+package Tempo::Color;
 
 use JBD::Core::stern;
 

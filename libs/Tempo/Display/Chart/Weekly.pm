@@ -3,14 +3,14 @@
 # @author Joel Dalley
 # @version 2013/Nov/16
 
-package JBD::Tempo::Display::Chart::Weekly;
+package Tempo::Display::Chart::Weekly;
 
-use parent 'JBD::Tempo::Display::Chart';
+use parent 'Tempo::Display::Chart';
 
 use JBD::Core::stern;
 use JBD::Core::Date;
-use JBD::Tempo::Color 'next_color';
-use JBD::Tempo::Data 'DATE';
+use Tempo::Color 'next_color';
+use Tempo::Data 'DATE';
 use JSON 'to_json';
 
 use constant SECS => 604800; # 7 days, in sec
@@ -19,7 +19,7 @@ use constant SECS => 604800; # 7 days, in sec
 #//////////////////////////////////////////////////////////////
 # Interface ///////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Weekly $this
+# @param Tempo::Display::Chart::Weekly $this
 # @param int $weeks    number of weeks to show
 # @return string    container + chart html
 sub chart {
@@ -54,7 +54,7 @@ sub chart {
 #//////////////////////////////////////////////////////////////
 # Internal use  ///////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Weekly $this
+# @param Tempo::Display::Chart::Weekly $this
 # @param JBD::Core::Date $begin
 # @param JBD::Core::Date $end
 # @return float    number of miles

@@ -3,9 +3,9 @@
 # @author Joel Dalley
 # @version 2013/Oct/12
 
-package JBD::Tempo::Display::Chart;
+package Tempo::Display::Chart;
 
-use parent 'JBD::Tempo::Display';
+use parent 'Tempo::Display';
 
 use JBD::Core::stern;
 use Module::Load;
@@ -18,11 +18,11 @@ our @EXPORT_OK = qw(new_from);
 # Object constructor //////////////////////////////////////////
 
 # @param string $subclass    subclass name, e.g., 'Annual'
-# @param JBD::Tempo::Display $from    clone data from
-# @return JBD::Tempo::Display::Chart    display chart object
+# @param Tempo::Display $from    clone data from
+# @return Tempo::Display::Chart    display chart object
 sub new_from($$) {
     my ($subclass, $from) = @_;
-    my $pkg = "JBD::Tempo::Display::Chart::$subclass";
+    my $pkg = "Tempo::Display::Chart::$subclass";
     load $pkg; $pkg->from($from);
 }
 
@@ -30,7 +30,7 @@ sub new_from($$) {
 #//////////////////////////////////////////////////////////////
 # Object interface ////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart $this
+# @param Tempo::Display::Chart $this
 # @param string $subclass    subclass name, e.g., 'Annual'
 sub ajax_html {
     my ($this, $subclass) = @_;
@@ -41,7 +41,7 @@ sub ajax_html {
     );
 }
 
-# @param JBD::Tempo::Display::Chart $this
+# @param Tempo::Display::Chart $this
 sub chart { 
     my $ref = ref shift;
     die "$ref: must override!"; 
@@ -51,7 +51,7 @@ sub chart {
 #//////////////////////////////////////////////////////////////
 # Internal use ////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart $this
+# @param Tempo::Display::Chart $this
 # @param string $tmpl    chart template
 # @param hash %repl    template replacements
 # @return string    container + chart html

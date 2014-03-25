@@ -3,21 +3,21 @@
 # @author Joel Dalley
 # @version 2013/Nov/16
 
-package JBD::Tempo::Display::Chart::Monthly;
+package Tempo::Display::Chart::Monthly;
 
-use parent 'JBD::Tempo::Display::Chart';
+use parent 'Tempo::Display::Chart';
 
 use JBD::Core::stern;
 use JBD::Core::Date;
-use JBD::Tempo::Color 'next_color';
-use JBD::Tempo::Data 'DATE';
+use Tempo::Color 'next_color';
+use Tempo::Data 'DATE';
 use JSON 'to_json';
 
 
 #//////////////////////////////////////////////////////////////
 # Interface ///////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Monthly $this
+# @param Tempo::Display::Chart::Monthly $this
 # @param int $Y   a year, YYYY
 # @return hash    template replacements
 sub chart {
@@ -44,7 +44,7 @@ sub chart {
 #//////////////////////////////////////////////////////////////
 # Internal use ////////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Chart::Monthly $this
+# @param Tempo::Display::Chart::Monthly $this
 # @param int $Y    a year, YYYY
 # @param int $m    a month, m or M
 # @return float    a number of miles

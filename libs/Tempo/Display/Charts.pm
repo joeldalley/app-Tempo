@@ -3,17 +3,17 @@
 # @author Joel Dalley
 # @version 2013/Oct/13
 
-package JBD::Tempo::Display::Charts;
+package Tempo::Display::Charts;
 
-use parent 'JBD::Tempo::Display';
+use parent 'Tempo::Display';
 
 use JBD::Core::stern;
-use JBD::Tempo::Display::Chart 'new_from';
+use Tempo::Display::Chart 'new_from';
 
 #//////////////////////////////////////////////////////////////
 # Object Interface ////////////////////////////////////////////
 
-# @param JBD::Tempo::Display::Charts $this
+# @param Tempo::Display::Charts $this
 # @return string    html
 sub charts {
     my $this = shift;
@@ -24,7 +24,7 @@ sub charts {
     my $quarterly = new_from('Quarterly', $this)->chart;
 
     # ajax html - deferred loading
-    my $chart = JBD::Tempo::Display::Chart->from($this);
+    my $chart = Tempo::Display::Chart->from($this);
     my $by_foot = $chart->ajax_html('Quarterly::ByFootwear');
     my $by_surf = $chart->ajax_html('Quarterly::BySurface');
     my $by_day = $chart->ajax_html('Quarterly::ByDay');

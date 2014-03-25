@@ -10,10 +10,10 @@ use context qw(tmpl_dir run_data);
 use CGI qw(header redirect param);
 
 use JBD::Core::stern;
-use JBD::Tempo::Display;
-use JBD::Tempo::Router 'get';
+use Tempo::Display;
+use Tempo::Router 'get';
 
-my $disp = JBD::Tempo::Display->new(tmpl_dir, run_data);
+my $disp = Tempo::Display->new(tmpl_dir, run_data);
 my %params = map {$_ => param($_) || ''} qw(route chart);
 
 my $content = get $disp, %params or do {
