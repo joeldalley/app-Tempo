@@ -8,18 +8,13 @@ use lib 'libs';
 
 use context qw(passkey tmpl_dir run_data footwear surfaces);
 use CGI qw(redirect header param);
-
 use Tempo::Display::AddForm;
 use JBD::Core::stern;
-use File::Slurp;
 
 # quote-unquote security
 my $attempt = param('passkey') || '';
-my $passkey = $attempt; #passkey or die 'No passkey';
-#$attempt eq $passkey or do {
-#    print redirect '/';
-#    exit;
-#};
+my $passkey = passkey or die 'No passkey';
+$attempt eq $passkey or do { print redirect '/'; exit };
 
 my $disp = Tempo::Display::AddForm->new(tmpl_dir, run_data);
 
