@@ -25,7 +25,7 @@ param('mode') or do {
 };
 param('mode') eq 'insert' and do {
     $disp->data->add_run(
-        $disp->date->formatted('%F'),
+        param('date') || $disp->date->formatted('%F'),
         param('distance'), 
         param('surface'),
         param('footwear')
