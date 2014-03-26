@@ -15,7 +15,7 @@ use File::Slurp;
 
 # quote-unquote security
 my $attempt = param('passkey') || '';
-my $passkey = passkey or die 'No passkey';
+my $passkey = $attempt; #passkey or die 'No passkey';
 #$attempt eq $passkey or do {
 #    print redirect '/';
 #    exit;

@@ -19,8 +19,8 @@ our @EXPORT_OK = qw(passkey tmpl_dir run_data footwear surfaces);
 
 # Passkey value.
 sub passkey { 
-    exists $ENV{HOME} or die 'No HOME in \%ENV';
-    trim read_file $ENV{HOME} . '/.tempo_passkey' or die $!;
+    #exists $ENV{HOME} or die 'No HOME in \%ENV';
+    #trim read_file $ENV{HOME} . '/.tempo_passkey' or die $!;
 }
 
 # Location of template files.
