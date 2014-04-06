@@ -5,11 +5,9 @@
 
 package Tempo::Data;
 
+use JBD::Core::Exporter ':omni';
 use JBD::Core::stern;
-use JBD::Core::Storable;
-
-use Exporter 'import';
-our @EXPORT_OK = qw(DATE DIST SURF FOOT);
+use DBI;
 
 # names for data field array indexes
 sub DATE {0}    sub DIST {1}
@@ -19,25 +17,57 @@ sub SURF {2}    sub FOOT {3}
 #//////////////////////////////////////////////////////////////
 # Object Interface ////////////////////////////////////////////
 
-# @param string $type   object type
-# @param string $store    path to Storable file
+# @param string $type Object type.
 # @return Tempo::Data
 sub new {
-    my ($type, $store) = @_;
-    bless [JBD::Core::Storable->new($store)], $type;
+    my $type = shift;
+
+    # Mimic openshift environment vars, w/ local values.
+    exists $ENV{OPENSHIFT_POSTGRESQL_DB_HOST}
+        or $ENV{OPENSHIFT_POSTGRESQL_DB_HOST} = 'localhost';
+    exists $ENV{OPENSHIFT_POSTGRESQL_DB_PORT}
+        or $ENV{OPENSHIFT_POSTGRESQL_DB_PORT} = '5432';
+
+    # On openshift, this file contains a username and password
+    # for my openshift postgres gear; locally, it has my local
+    # development db user and password in it.
+    chomp(my $pass_data = `cat ~/.pgpass`);
+    my (undef, undef, undef, $user, $pass) = split /:/, $pass_data;
+
+    # Connect.
+    my $dsn = "DBI:Pg:dbname=tempo;"
+            . "host=$ENV{OPENSHIFT_POSTGRESQL_DB_HOST};"
+            . "port=$ENV{OPENSHIFT_POSTGRESQL_DB_PORT}";
+    my $dbh = DBI->connect($dsn, $user, $pass) or die $!;
+
+    bless [$dbh, undef], $type;
 }
 
 # @param Tempo::Data
-# @return JBD::Core::Storable
-sub store { shift->[0] }
+# @return DBI A connected DBI.
+sub dbi { shift->[0] }
 
 # @param Tempo::Data
+# @return arrayref All data rows.
+sub data { shift->[1] }
+
+# @param Tempo::Data $this
+# @return array A copy of the run data.
+sub copy { 
+    my $this = shift;
+    $this->load; @{$this->data};
+}
+
+# @param Tempo::Data $this
 # @return arrayref    run data
-sub load { shift->store->load }
-
-# @param Tempo::Data
-# @return array    a copy of Storable data
-sub copy { @{shift->load} }
+sub load { 
+    my $this = shift;
+    ref $this->[1] or do {
+        my $q = 'SELECT * FROM runlog ORDER BY run_date DESC';
+        $this->[1] = $this->dbi->selectall_arrayref($q);
+    };
+    $this->data;
+}
 
 
 # @param Tempo::Data
@@ -70,9 +100,17 @@ sub subset {
 # @param string    footwear worn
 sub add_run {
     my $this = shift;
+
+    # Add to in-memory array.
     my $data = $this->load;
     unshift @$data, [@_];
-    $this->store->save($data);
+
+    # Add to database.
+    my $q = 'INSERT INTO runlog'
+          . ' (run_date,distance,surface,footwear)'
+          . ' VALUES (?,?,?,?)';
+    my $sth = $this->dbi->prepare($q) or die $!;
+    $sth->execute(@_) or die $!;
 }
 
 # @param Tempo::Data $this
@@ -80,20 +118,17 @@ sub add_run {
 # @param arrayref $to    are replaced with this
 sub replace_run {
     my ($this, $from, $to) = @_;
+
+    # Update in-memory array.
     my $data = $this->load;
     for (@$data) { $_ = $to if "@$_" eq "@$from" }
-    $this->store->save($data);
-}
 
-# @param Tempo::Data $this
-# @param string    a Y-m-d
-# @param float    number of miles
-# @param string    running surface
-# @param string    footwear worn
-sub remove_run {
-    my $this = shift;
-    my $data = $this->load;
-    $this->store->save([grep "@$_" ne "@_", @$data]);
+    # Update database.
+    my $q = 'UPDATE runlog' 
+          . ' SET run_date=?,distance=?,surface=?,footwear=?'
+          . ' WHERE run_date=?,distance=?,surface=?,footwear=?';
+    my $sth = $this->dbi->prepare($q);
+    $sth->execute(@$to, @$from);
 }
 
 
