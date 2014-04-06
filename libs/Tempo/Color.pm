@@ -11,9 +11,9 @@ use Exporter 'import';
 our @EXPORT_OK = qw(next_color color_list);
 
 my @palette = (
-    qw(7C0D20 910D23 A63045),               # reds
-    qw(B4A47A CAB37A E0B787 E5C99D F3E8BC), # yellows
-    qw(1E395B 33476D 4D70C0 5795E6 77B5EF), # blues
+    '7C0D20', '910D23', 'A63045',                     # reds
+    'B4A47A', 'CAB37A', 'E0B787', 'E5C99D', 'F3E8BC', # yellows
+    '1E395B', '33476D', '4D70C0', '5795E6', '77B5EF', # blues
     );
 
 # for next_color()
@@ -27,7 +27,7 @@ my %copy;
 # @return string    hex color
 sub next_color($) {
     my $k = shift;
-    $copy{$k} && @{$copy{$k}} or $copy{$k} = [@palette];
+    $copy{$k} = [@palette] unless $copy{$k} && @{$copy{$k}};
     '#' . pop @{$copy{$k}};
 }
 
