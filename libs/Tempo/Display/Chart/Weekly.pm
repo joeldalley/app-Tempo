@@ -35,7 +35,7 @@ sub chart {
         push @data, {
             miles => $this->_dist($begin, $end),
             week => $end->formatted('%D'),
-            color => next_color(__PACKAGE__ . $weeks)
+            color => next_color(__PACKAGE__ . $weeks . time)
             };
     }
 

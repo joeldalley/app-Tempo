@@ -31,7 +31,7 @@ sub chart {
             my $runs = $this->_data($Y, $q, 'how_many');
             push @data, {
                 average => sprintf('%.1f', $miles / $runs),
-                color   => next_color(__PACKAGE__),
+                color   => next_color(__PACKAGE__ . time),
                 quarter => "Q$q-$Y"
             }
         };

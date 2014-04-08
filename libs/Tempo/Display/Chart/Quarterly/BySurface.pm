@@ -24,7 +24,7 @@ sub chart {
     my $begin_year = $this->data->begin_year;
     my $end_year = $this->data->end_year;
     my $surfaces = $this->data->surfaces;
-    my @colors = color_list __PACKAGE__, @$surfaces;
+    my @colors = color_list __PACKAGE__ . time, @$surfaces;
 
     my @data;
     for my $Y ($begin_year .. $end_year) {

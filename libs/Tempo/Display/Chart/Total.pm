@@ -20,7 +20,7 @@ sub chart {
     my $this = shift;
 
     my $total = $this->data->how_far;
-    my @colors = color_list(__PACKAGE__, 1);
+    my @colors = color_list(__PACKAGE__ . time, 1);
     my $json = to_json([{title => 'Miles', value => $total}]);
 
     $this->_chart('pie-chart.html',

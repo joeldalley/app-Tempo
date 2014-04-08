@@ -30,7 +30,7 @@ sub chart {
         push @pairs, {title => $Y, value => $dist};
     }
 
-    my @colors = color_list(__PACKAGE__, scalar @pairs);
+    my @colors = color_list(__PACKAGE__ . time, scalar @pairs);
     my $json = to_json(\@pairs);
 
     $this->_chart('pie-chart.html',

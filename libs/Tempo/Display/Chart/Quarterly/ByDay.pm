@@ -25,7 +25,7 @@ sub chart {
     my $begin_year = $this->data->begin_year;
     my $end_year = $this->data->end_year;
     my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
-    my @colors = color_list __PACKAGE__, @days;
+    my @colors = color_list __PACKAGE__ . time, @days;
 
     my @data;
     for my $Y ($begin_year .. $end_year) {

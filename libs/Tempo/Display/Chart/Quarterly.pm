@@ -31,7 +31,7 @@ sub chart {
             push @data, {
                 miles   => $miles,
                 quarter => "Q$q-$Y",
-                color   => next_color(__PACKAGE__)
+                color   => next_color(__PACKAGE__ . time)
             }
         };
     }

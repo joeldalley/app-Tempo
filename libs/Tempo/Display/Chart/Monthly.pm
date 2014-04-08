@@ -26,7 +26,7 @@ sub chart {
     my @data = map {{
         miles => $this->_dist($Y, $_),
         month => JBD::Core::Date->new_from_Ymd("$Y-$_-01")->month_abbr,
-        color => next_color(__PACKAGE__ . $Y)
+        color => next_color(__PACKAGE__ . $Y . time)
         }} (1 .. 12);
 
     $this->_chart('serial-chart.html',
