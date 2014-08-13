@@ -23,7 +23,7 @@ sub new {
 
     bless [
         JBD::Core::Display->new($tmpl_dir),
-        Tempo::Data->new($data_file),
+        Tempo::Data->new,
         JBD::Core::Date->new
         ], $type;
 }

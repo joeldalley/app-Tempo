@@ -15,7 +15,7 @@ use JBD::Core::String 'trim';
 
 use constant file_path => dirname abs_path __FILE__;
 
-our @EXPORT_OK = qw(passkey tmpl_dir run_data footwear surfaces);
+our @EXPORT_OK = qw(passkey tmpl_dir footwear surfaces);
 
 # Passkey value.
 sub passkey {
@@ -24,9 +24,6 @@ sub passkey {
 
 # Location of template files.
 sub tmpl_dir { file_path . '/../tmpl' }
-
-# Location of Storable run data file.
-sub run_data { file_path . '/../db/rundata.store' }
 
 # Footwear which occurs in data set, 
 # and which will appear on the add form.
