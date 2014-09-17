@@ -14,10 +14,11 @@ sub get($%) {
     my ($disp, %params) = (shift, @_);
     my $route = $params{route};
 
-    # home / philosophy page
-    grep $route eq $_, ('', 'philosophy') and do {
-        my $content = $disp->show('philosophy.html');
-        return $disp->page('Running Philosophy', $content);
+    # home / recent runs page
+    grep $route eq $_, ('', 'philosophy', 'recent') and do {
+        require Tempo::Display::Summary;
+        my $sum = Tempo::Display::Summary->from($disp);
+        return $disp->page('Recent Runs', $sum->summary);
     };
 
     # run charts page
@@ -32,13 +33,6 @@ sub get($%) {
         require Tempo::Display::Chart;
         my $sub = \&Tempo::Display::Chart::new_from;
         return $sub->($params{chart}, $disp)->chart;
-    };
-
-    # recent runs page
-    $route eq 'recent' and do {
-        require Tempo::Display::Summary;
-        my $sum = Tempo::Display::Summary->from($disp);
-        return $disp->page('Recent Runs', $sum->summary);
     };
 
     # run log page
