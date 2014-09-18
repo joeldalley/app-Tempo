@@ -16,10 +16,9 @@ use HTML::Entities;
 
 # @param string $type    object type
 # @param string $tmpl_dir    path to template files
-# @param string $data_file    path to run data file
 # @return Tempo::Display
 sub new {
-    my ($type, $tmpl_dir, $data_file) = @_;
+    my ($type, $tmpl_dir) = @_;
 
     bless [
         JBD::Core::Display->new($tmpl_dir),
