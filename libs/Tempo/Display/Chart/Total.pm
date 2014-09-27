@@ -19,7 +19,7 @@ use JSON 'to_json';
 sub chart {
     my $this = shift;
 
-    my $total = $this->data->how_far;
+    my $total = sprintf '%.1f', $this->data->how_far;
     my @colors = color_list(__PACKAGE__ . time, 1);
     my $json = to_json([{title => 'Miles', value => $total}]);
 
