@@ -19,7 +19,7 @@ $attempt eq $passkey or do { print redirect '/'; exit };
 my $disp = Tempo::Display::AddForm->new(tmpl_dir);
 
 param('mode') or do {
-    print header(-charset => 'utf-8'), 
+    print header(-charset => 'utf-8'),
           $disp->form($passkey, footwear, surfaces);
     exit;
 };

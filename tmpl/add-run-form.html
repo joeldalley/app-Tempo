@@ -1,19 +1,29 @@
-<form method="post" action="/add.pl">
-  <input type="hidden" name="passkey" value="<!--PASSKEY-->"/>
-  <input type="hidden" name="mode" value="insert"/>
-  <label for="date">Date:</label>
-  <input type="text" size="12" maxlength="10" name="date"/>
-  <br/>
-  <label for="distance">Distance:</label>
-  <input type="text" size="8" name="distance"/>
-  <br/>
-  <select name="surface" size="1">
-    <!--SURF-OPTS-->
-  </select>
-  <br/>
-  <select name="footwear" size="1">
-    <!--FOOT-OPTS-->
-  </select>
-  <br/>
-  <input type="submit" value="Add"/>
-</form>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Add Run</title>
+    <link rel="shortcut icon" href="/res/favicon.ico" type="image/icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  </head>
+  <body>
+    <form method="post" action="/add.pl">
+      <input type="hidden" name="passkey" value="<!--PASSKEY-->"/>
+      <input type="hidden" name="mode" value="insert"/>
+      <label for="date">Date:</label>
+      <input type="text" size="12" maxlength="10" name="date"/>
+      <br/>
+      <label for="distance">Distance:</label>
+      <input type="text" size="8" name="distance"/>
+      <br/>
+      <select name="surface" size="1">
+        <!--SURF-OPTS-->
+      </select>
+      <br/>
+      <select name="footwear" size="1">
+        <!--FOOT-OPTS-->
+      </select>
+      <br/>
+      <input type="submit" value="Add"/>
+    </form>
+  </body>
+</html>

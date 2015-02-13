@@ -28,14 +28,14 @@ sub tmpl_dir { file_path . '/../tmpl' }
 # Footwear which occurs in data set, 
 # and which will appear on the add form.
 sub footwear {[
-    'Wave Universe 4',
-    'Wave Universe 3',
     'MX20v3 Minimus',
     'MT110',
-    'MT101',
+    'Wave Universe 4',
+    'Wave Universe 3',
     'Trail Minimus',
-    'Wave Nirvana 5',
-    'Barefoot'
+    'Barefoot',
+    'MT101',
+    'Wave Nirvana 5'
 ]}
 
 # Surfaces which occur in the data set,
