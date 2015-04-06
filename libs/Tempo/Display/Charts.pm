@@ -21,6 +21,7 @@ sub charts {
     # currently loaded charts html
     my $total = new_from('Total', $this)->chart;
     my $annual = new_from('Annual', $this)->chart;
+    my $foot_total = new_from('Footwear', $this)->chart;
     my $quarterly = new_from('Quarterly', $this)->chart;
 
     # ajax html - deferred loading
@@ -33,6 +34,7 @@ sub charts {
     $this->show('charts-container.html',
         '<!--TOTAL-->'        => $total,
         '<!--ANNUAL-->'       => $annual,
+        '<!--FOOT-TOTAL-->'   => $foot_total,
         '<!--QUARTERLY-->'    => $quarterly,
         '<!--BY-FOOTWEAR-->'  => $by_foot,
         '<!--BY-SURFACE-->'   => $by_surf,
