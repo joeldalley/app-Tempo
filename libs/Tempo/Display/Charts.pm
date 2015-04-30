@@ -22,6 +22,7 @@ sub charts {
     my $total = new_from('Total', $this)->chart;
     my $annual = new_from('Annual', $this)->chart;
     my $foot_total = new_from('Footwear', $this)->chart;
+    my $monthly_all_time = new_from('MonthlyAllTime', $this)->chart;
     my $quarterly = new_from('Quarterly', $this)->chart;
 
     # ajax html - deferred loading
@@ -32,14 +33,15 @@ sub charts {
     my $avg_dist = $chart->ajax_html('Quarterly::AverageDistance');
 
     $this->show('charts-container.html',
-        '<!--TOTAL-->'        => $total,
-        '<!--ANNUAL-->'       => $annual,
-        '<!--FOOT-TOTAL-->'   => $foot_total,
-        '<!--QUARTERLY-->'    => $quarterly,
-        '<!--BY-FOOTWEAR-->'  => $by_foot,
-        '<!--BY-SURFACE-->'   => $by_surf,
-        '<!--BY-DAY-->'       => $by_day,
-        '<!--AVG-DISTANCE-->' => $avg_dist
+        '<!--TOTAL-->'            => $total,
+        '<!--ANNUAL-->'           => $annual,
+        '<!--FOOT-TOTAL-->'       => $foot_total,
+        '<!--MONTHLY-ALL-TIME-->' => $monthly_all_time,
+        '<!--QUARTERLY-->'        => $quarterly,
+        '<!--BY-FOOTWEAR-->'      => $by_foot,
+        '<!--BY-SURFACE-->'       => $by_surf,
+        '<!--BY-DAY-->'           => $by_day,
+        '<!--AVG-DISTANCE-->'     => $avg_dist
     );
 }
 
