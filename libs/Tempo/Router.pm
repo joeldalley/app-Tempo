@@ -15,7 +15,7 @@ sub get($%) {
     my $route = $params{route};
 
     # home / recent runs page
-    grep $route eq $_, ('', 'philosophy', 'recent') and do {
+    grep $route eq $_, ('', 'recent') and do {
         require Tempo::Display::Summary;
         my $sum = Tempo::Display::Summary->from($disp);
         return $disp->page('Recent Runs', $sum->summary);
