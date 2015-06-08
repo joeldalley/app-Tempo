@@ -30,6 +30,8 @@ sub tmpl_dir { file_path . '/../tmpl' }
 sub footwear {[
     'MX20v3 Minimus',
     'MT110',
+    'MACH 16',
+    'Adizero Boston Boost',
     'Wave Universe 4',
     'Wave Universe 3',
     'Trail Minimus',
