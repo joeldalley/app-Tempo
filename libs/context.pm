@@ -29,6 +29,7 @@ sub tmpl_dir { file_path . '/../tmpl' }
 # and which will appear on the add form.
 sub footwear {[
     'MX20v3 Minimus',
+    'f-Lite 195',
     'MT110',
     'MACH 16',
     'Adizero Boston Boost',
