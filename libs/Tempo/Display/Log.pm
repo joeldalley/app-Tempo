@@ -24,8 +24,15 @@ sub log {
     my @data = $this->data->copy;
     @data = @data[0 .. $size] if $size;
 
+    my ($num, $rows) = (1, '');
+
+    for (@data) { 
+        $rows .= $this->_row($_, $num);
+        $num += 1;
+     }
+
     return $this->show('run-log-open.html')
-         . join('', map $this->_row($_), @data)
+         . $rows
          . $this->show('run-log-close.html');
 }
 
@@ -35,11 +42,13 @@ sub log {
 
 # @param object $this    a Tempo::Display::Log
 # @param arrayref $row    a run log data row
+# @param int $num    the run number
 # @return string    html
 sub _row {
-    my ($this, $row) = @_;
+    my ($this, $row, $num) = @_;
     my $date = JBD::Core::Date->new_from_Ymd($row->[DATE]);
     $this->show('run-log-row.html', 
+        '<!--NUM-->'  => $num,
         '<!--DATE-->' => $date->formatted('%a, %b %o, %Y'),
         '<!--DIST-->' => $row->[DIST],
         '<!--SURF-->' => $row->[SURF],
