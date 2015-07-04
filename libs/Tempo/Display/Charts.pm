@@ -22,6 +22,7 @@ sub charts {
     my $total = new_from('Total', $this)->chart;
     my $annual = new_from('Annual', $this)->chart;
     my $foot_total = new_from('Footwear', $this)->chart;
+    my $runs_of_dist = new_from('RunsOfDistance', $this)->chart;
     my $monthly_all_time = new_from('MonthlyAllTime', $this)->chart;
     my $quarterly = new_from('Quarterly', $this)->chart;
 
@@ -36,6 +37,7 @@ sub charts {
         '<!--TOTAL-->'            => $total,
         '<!--ANNUAL-->'           => $annual,
         '<!--FOOT-TOTAL-->'       => $foot_total,
+        '<!--RUNS-OF-DIST-->'     => $runs_of_dist,
         '<!--MONTHLY-ALL-TIME-->' => $monthly_all_time,
         '<!--QUARTERLY-->'        => $quarterly,
         '<!--BY-FOOTWEAR-->'      => $by_foot,
