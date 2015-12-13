@@ -29,6 +29,7 @@ sub tmpl_dir { file_path . '/../tmpl' }
 # and which will appear on the add form.
 sub footwear {[
     'MX20v3 Minimus',
+    'Xodus 6.0 GTX',
     'f-Lite 195',
     'MT110',
     'MACH 16',
@@ -44,9 +45,9 @@ sub footwear {[
 # Surfaces which occur in the data set,
 # and which will appear on the add form.
 sub surfaces {[
+    'Paved Road',
     'Running Trail',
     'Mountain Trail',
-    'Paved Road',
     'Treadmill'
 ]}
 
