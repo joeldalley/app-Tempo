@@ -28,9 +28,10 @@ sub tmpl_dir { file_path . '/../tmpl' }
 # Footwear which occurs in data set, 
 # and which will appear on the add form.
 sub footwear {[
-    'MX20v3 Minimus',
+    'Fresh Foam Zante',
     'Xodus 6.0 GTX',
     'f-Lite 195',
+    'MX20v3 Minimus',
     'MT110',
     'MACH 16',
     'Adizero Boston Boost',
